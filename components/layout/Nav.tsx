@@ -18,7 +18,7 @@ const MyceliumLogo = () => (
     <circle cx="140" cy="72"  r="8"  fill="white"/>
     <circle cx="60"  cy="128" r="8"  fill="white"/>
     <circle cx="140" cy="128" r="8"  fill="white"/>
-    <circle cx="100" cy="94"  r="11" fill="#5DCAA5" className="animate-pulse-glow"/>
+    <circle cx="100" cy="94"  r="11" fill="#9B5FE3" className="animate-pulse-glow"/>
     <circle cx="84"  cy="114" r="6"  fill="white" opacity="0.7"/>
     <circle cx="116" cy="114" r="6"  fill="white" opacity="0.7"/>
   </svg>
@@ -35,7 +35,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#1a1a1f] bg-bg/95 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#1a1a3a] bg-bg/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <MyceliumLogo />

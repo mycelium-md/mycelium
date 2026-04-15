@@ -17,7 +17,7 @@ const MyceliumWordmark = () => (
       <circle cx="140" cy="72"  r="8"  fill="white"/>
       <circle cx="60"  cy="128" r="8"  fill="white"/>
       <circle cx="140" cy="128" r="8"  fill="white"/>
-      <circle cx="100" cy="94"  r="11" fill="#5DCAA5"/>
+      <circle cx="100" cy="94"  r="11" fill="#9B5FE3"/>
       <circle cx="84"  cy="114" r="6"  fill="white" opacity="0.7"/>
       <circle cx="116" cy="114" r="6"  fill="white" opacity="0.7"/>
     </svg>
@@ -39,7 +39,7 @@ export default function FooterSection() {
         {/* Wordmark + tagline */}
         <div className="flex flex-col gap-3">
           <MyceliumWordmark />
-          <p className="font-syne text-xs text-[#6b6b78] max-w-[280px]">
+          <p className="font-syne text-xs text-[#8866aa] max-w-[280px]">
             The substrate AI agents run on.<br />
             Open protocol. No orchestrator.
           </p>
@@ -54,7 +54,7 @@ export default function FooterSection() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-syne text-xs text-[#6b6b78] hover:text-text transition-colors self-start"
+                className="font-syne text-xs text-[#8866aa] hover:text-text transition-colors self-start"
               >
                 {link.label}
               </a>
@@ -62,7 +62,7 @@ export default function FooterSection() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-syne text-xs text-[#6b6b78] hover:text-text transition-colors self-start"
+                className="font-syne text-xs text-[#8866aa] hover:text-text transition-colors self-start"
               >
                 {link.label}
               </Link>
@@ -71,8 +71,8 @@ export default function FooterSection() {
         </nav>
       </div>
 
-      <div className="border-t border-[#1a1a1f] pt-8">
-        <p className="font-syne text-xs text-[#3a3a40]">
+      <div className="border-t border-[#1a1a3a] pt-8">
+        <p className="font-syne text-xs text-[#3a2a5a]">
           Built in public.
         </p>
       </div>

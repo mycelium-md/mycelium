@@ -8,11 +8,12 @@ interface Props {
   className?: string;
 }
 
-const ACCENT = "#5DCAA5";
-const NODE_FILL = "#f5f5f0";
-const EDGE_COLOR = "rgba(255,255,255,0.15)";
-const EDGE_ACTIVE = "rgba(93,202,165,0.4)";
-const BG = "#0a0a0a";
+const ACCENT = "#9B5FE3";                      // violet-purple
+const ACCENT_BRIGHT = "#C084F5";               // light purple
+const NODE_FILL = "#e8ccff";                   // soft lavender
+const EDGE_COLOR = "rgba(155,95,227,0.20)";    // purple-tinted edge
+const EDGE_ACTIVE = "rgba(176,102,255,0.55)";  // bright active edge
+const BG = "#08081a";                          // deep navy
 
 interface SimNode extends NetworkNode {
   x: number;
@@ -193,8 +194,9 @@ export default function NetworkGraph({ data, onNodeClick, className = "" }: Prop
 
         if (isActive) {
           const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 3);
-          grad.addColorStop(0, "rgba(93,202,165,0.2)");
-          grad.addColorStop(1, "rgba(93,202,165,0)");
+          grad.addColorStop(0, "rgba(176,102,255,0.40)");
+          grad.addColorStop(0.5, "rgba(155,95,227,0.15)");
+          grad.addColorStop(1, "rgba(106,31,168,0)");
           ctx.beginPath();
           ctx.arc(n.x, n.y, r * 3, 0, Math.PI * 2);
           ctx.fillStyle = grad;
@@ -220,7 +222,7 @@ export default function NetworkGraph({ data, onNodeClick, className = "" }: Prop
 
         // Label
         ctx.font = "11px var(--font-syne, sans-serif)";
-        ctx.fillStyle = isActive ? ACCENT : "rgba(245,245,240,0.6)";
+        ctx.fillStyle = isActive ? ACCENT_BRIGHT : "rgba(192,160,255,0.7)";
         ctx.textAlign = "center";
         ctx.fillText(n.name, n.x, n.y + r + 16);
       }

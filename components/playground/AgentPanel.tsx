@@ -77,7 +77,7 @@ export default function AgentPanel({ agents, onAgentRegistered, onAgentRemoved }
           value={name}
           onChange={(e) => setName(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && register()}
-          className="w-full bg-[#111114] border border-[#2a2a30] text-text placeholder-[#6b6b78] font-syne text-sm px-3 py-2.5 outline-none focus:border-accent transition-colors mb-3"
+          className="w-full bg-[#0d0d2b] border border-[#2a1a4a] text-text placeholder-[#8866aa] font-syne text-sm px-3 py-2.5 outline-none focus:border-accent transition-colors mb-3"
         />
         <div className="flex flex-wrap gap-2 mb-4">
           {ALL_CAPABILITIES.map((cap) => (
@@ -87,7 +87,7 @@ export default function AgentPanel({ agents, onAgentRegistered, onAgentRemoved }
               className={`font-syne text-xs px-2.5 py-1 border transition-colors ${
                 selectedCaps.includes(cap)
                   ? "border-accent text-accent bg-accent/10"
-                  : "border-[#2a2a30] text-text-muted hover:border-[#6b6b78]"
+                  : "border-[#2a1a4a] text-text-muted hover:border-[#8866aa]"
               }`}
             >
               {CAP_LABELS[cap]}
@@ -106,7 +106,7 @@ export default function AgentPanel({ agents, onAgentRegistered, onAgentRemoved }
         </button>
       </div>
 
-      <hr className="border-[#2a2a30]" />
+      <hr className="border-[#2a1a4a]" />
 
       {/* Agent list */}
       <div>
@@ -114,23 +114,23 @@ export default function AgentPanel({ agents, onAgentRegistered, onAgentRemoved }
           Active Agents ({agents.length})
         </p>
         {agents.length === 0 ? (
-          <p className="font-syne text-xs text-[#6b6b78]">
+          <p className="font-syne text-xs text-[#8866aa]">
             No agents registered. Add one above.
           </p>
         ) : (
           <div className="flex flex-col gap-2">
             {agents.map((agent) => (
-              <div key={agent.id} className="border border-[#1a1a1f] p-3 group">
+              <div key={agent.id} className="border border-[#1a1a3a] p-3 group">
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <p className="font-syne text-sm font-500 text-text">{agent.name}</p>
-                    <p className="font-syne text-xs text-[#6b6b78]">
+                    <p className="font-syne text-xs text-[#8866aa]">
                       {agent.taskCount} task{agent.taskCount !== 1 ? "s" : ""} completed
                     </p>
                   </div>
                   <button
                     onClick={() => remove(agent.id)}
-                    className="font-syne text-xs text-[#6b6b78] hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
+                    className="font-syne text-xs text-[#8866aa] hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
                   >
                     remove
                   </button>
@@ -139,7 +139,7 @@ export default function AgentPanel({ agents, onAgentRegistered, onAgentRemoved }
                   {agent.capabilities.map((cap) => (
                     <span
                       key={cap}
-                      className="font-syne text-[10px] px-1.5 py-0.5 bg-[#1a1a1f] text-[#9999aa]"
+                      className="font-syne text-[10px] px-1.5 py-0.5 bg-[#1a1a3a] text-[#9988bb]"
                     >
                       {cap}
                     </span>

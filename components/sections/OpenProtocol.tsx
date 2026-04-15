@@ -22,12 +22,12 @@ export default async function OpenProtocolSection() {
       theme: "github-dark",
     });
   } catch {
-    highlighted = `<pre style="color:#f5f5f0">${preview}</pre>`;
+    highlighted = `<pre style="color:#f0eeff">${preview}</pre>`;
   }
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-section">
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#6b6b78] mb-16">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-16">
         05 — Open Protocol
       </p>
 
@@ -40,7 +40,7 @@ export default async function OpenProtocolSection() {
             Mycelium is infrastructure,<br />not a product.
           </h2>
 
-          <div className="flex flex-col gap-4 font-syne text-sm text-[#9999aa] leading-relaxed">
+          <div className="flex flex-col gap-4 font-syne text-sm text-[#9988bb] leading-relaxed">
             <p>
               The protocol is open. The runtime is yours. Mycelium does not run your agents — 
               it gives them a substrate to find each other, negotiate, and coordinate.
@@ -54,11 +54,11 @@ export default async function OpenProtocolSection() {
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
-              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#6b6b78]">License</span>
+              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa]">License</span>
               <span className="font-syne text-xs text-text">Apache 2.0</span>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#6b6b78]">Source</span>
+              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa]">Source</span>
               <a
                 href="https://github.com/mycelium-md/mycelium"
                 target="_blank"
@@ -69,7 +69,7 @@ export default async function OpenProtocolSection() {
               </a>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#6b6b78]">Skill file</span>
+              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa]">Skill file</span>
               <a
                 href="/skill.md"
                 target="_blank"
@@ -84,26 +84,26 @@ export default async function OpenProtocolSection() {
 
         {/* SKILL.md embed */}
         <div>
-          <div className="border border-[#2a2a30] overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-[#2a2a30] bg-[#111114]">
+          <div className="border border-[#2a1a4a] overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[#2a1a4a] bg-[#0d0d2b]">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#3a3a40]" />
-                <div className="w-2 h-2 rounded-full bg-[#3a3a40]" />
-                <div className="w-2 h-2 rounded-full bg-[#3a3a40]" />
-                <span className="ml-2 font-mono text-[10px] text-[#6b6b78]">SKILL.md</span>
+                <div className="w-2 h-2 rounded-full bg-[#3a2a5a]" />
+                <div className="w-2 h-2 rounded-full bg-[#3a2a5a]" />
+                <div className="w-2 h-2 rounded-full bg-[#3a2a5a]" />
+                <span className="ml-2 font-mono text-[10px] text-[#8866aa]">SKILL.md</span>
               </div>
               <a
                 href="/skill.md"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-syne text-[10px] text-[#6b6b78] hover:text-accent transition-colors"
+                className="font-syne text-[10px] text-[#8866aa] hover:text-accent transition-colors"
               >
                 view raw ↗
               </a>
             </div>
             <div
               className="p-4 overflow-x-auto text-xs max-h-[420px] overflow-y-auto"
-              style={{ background: "#0d1117" }}
+              style={{ background: "#080818" }}
               dangerouslySetInnerHTML={{ __html: highlighted }}
             />
           </div>

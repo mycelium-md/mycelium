@@ -18,9 +18,10 @@ interface MeshEdge {
   dim: boolean;
 }
 
-const ACCENT = "#5DCAA5";
-const NODE_COLOR = "#ffffff";
-const EDGE_COLOR = "rgba(255,255,255,0.12)";
+const ACCENT = "#9B5FE3";          // violet-purple
+const ACCENT_GLOW = "#B066FF";     // purple bloom
+const NODE_COLOR = "#e8ccff";      // soft lavender white
+const EDGE_COLOR = "rgba(155,95,227,0.25)"; // purple-tinted edge
 
 // The exact logo geometry, scaled to canvas coordinates
 function buildLogoNodes(cx: number, cy: number, scale: number): MeshNode[] {
@@ -129,7 +130,7 @@ export default function AgentMesh({ className = "", animated = true }: Props) {
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = e.dim ? "rgba(255,255,255,0.06)" : EDGE_COLOR;
+        ctx.strokeStyle = e.dim ? "rgba(155,95,227,0.08)" : EDGE_COLOR;
         ctx.lineWidth = e.dim ? 1 : 1.5;
         ctx.stroke();
       }
@@ -145,8 +146,9 @@ export default function AgentMesh({ className = "", animated = true }: Props) {
         if (n.isAccent) {
           // Glow halo
           const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, drawR * 3);
-          grad.addColorStop(0, "rgba(93,202,165,0.25)");
-          grad.addColorStop(1, "rgba(93,202,165,0)");
+          grad.addColorStop(0, "rgba(176,102,255,0.45)");
+          grad.addColorStop(0.5, "rgba(155,95,227,0.15)");
+          grad.addColorStop(1, "rgba(106,31,168,0)");
           ctx.beginPath();
           ctx.arc(n.x, n.y, drawR * 3, 0, Math.PI * 2);
           ctx.fillStyle = grad;

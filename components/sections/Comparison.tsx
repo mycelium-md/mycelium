@@ -48,7 +48,7 @@ const COLS = [
 export default function ComparisonSection() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-section">
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#6b6b78] mb-16">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-16">
         04 — Comparison
       </p>
 
@@ -67,7 +67,7 @@ export default function ComparisonSection() {
               <tr key={row.name} className={row.isMycelium ? "mycelium-row" : ""}>
                 <td className="font-syne font-600 text-sm">{row.name}</td>
                 {COLS.map((col) => (
-                  <td key={col.key} className="font-syne text-sm text-[#9999aa]">
+                  <td key={col.key} className="font-syne text-sm text-[#9988bb]">
                     {row[col.key]}
                   </td>
                 ))}

@@ -146,18 +146,18 @@ export default function TaskBroadcast({ onTaskBroadcast }: Props) {
             placeholder="Describe a task for the agent mesh..."
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full bg-[#111114] border border-[#2a2a30] text-text placeholder-[#6b6b78] font-syne text-sm px-3 py-2.5 outline-none focus:border-accent transition-colors resize-none"
+            className="w-full bg-[#0d0d2b] border border-[#2a1a4a] text-text placeholder-[#8866aa] font-syne text-sm px-3 py-2.5 outline-none focus:border-accent transition-colors resize-none"
           />
           <button
             onClick={broadcast}
             disabled={!description.trim()}
-            className="w-full font-syne text-xs font-600 uppercase tracking-widest border border-[#f5f5f0] text-text hover:bg-[#f5f5f0] hover:text-bg transition-colors py-2.5 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full font-syne text-xs font-600 uppercase tracking-widest border border-[#f0eeff] text-text hover:bg-[#f0eeff] hover:text-bg transition-colors py-2.5 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Broadcast
           </button>
         </>
       ) : (
-        <div className="border border-[#2a2a30] p-4 flex flex-col gap-4">
+        <div className="border border-[#2a1a4a] p-4 flex flex-col gap-4">
           {/* Phase indicator */}
           <div className="flex flex-col gap-1.5">
             {PHASES.map((p) => {
@@ -174,12 +174,12 @@ export default function TaskBroadcast({ onTaskBroadcast }: Props) {
                         ? "bg-accent"
                         : isActive
                         ? "bg-accent animate-pulse"
-                        : "bg-[#2a2a30]"
+                        : "bg-[#2a1a4a]"
                     }`}
                   />
                   <span
                     className={`font-syne text-xs ${
-                      isActive ? "text-text" : isDone ? "text-accent" : "text-[#6b6b78]"
+                      isActive ? "text-text" : isDone ? "text-accent" : "text-[#8866aa]"
                     }`}
                   >
                     {p.label}
@@ -193,7 +193,7 @@ export default function TaskBroadcast({ onTaskBroadcast }: Props) {
           {result && (
             <div className="flex flex-col gap-2">
               <div>
-                <p className="font-syne text-[10px] uppercase tracking-widest text-[#6b6b78] mb-1">
+                <p className="font-syne text-[10px] uppercase tracking-widest text-[#8866aa] mb-1">
                   Required
                 </p>
                 <div className="flex flex-wrap gap-1">
@@ -205,18 +205,18 @@ export default function TaskBroadcast({ onTaskBroadcast }: Props) {
                 </div>
               </div>
               <div>
-                <p className="font-syne text-[10px] uppercase tracking-widest text-[#6b6b78] mb-1">
+                <p className="font-syne text-[10px] uppercase tracking-widest text-[#8866aa] mb-1">
                   Coalition ({result.coalition.length} agent{result.coalition.length !== 1 ? "s" : ""})
                 </p>
                 <div className="flex flex-wrap gap-1">
                   {result.coalition.map((a) => (
-                    <span key={a.id} className="font-syne text-[10px] px-1.5 py-0.5 border border-[#2a2a30] text-text">
+                    <span key={a.id} className="font-syne text-[10px] px-1.5 py-0.5 border border-[#2a1a4a] text-text">
                       {a.name}
                     </span>
                   ))}
                 </div>
               </div>
-              <p className="font-syne text-[10px] text-[#6b6b78]">
+              <p className="font-syne text-[10px] text-[#8866aa]">
                 Confidence: <span className="text-accent">{Math.round(result.confidence * 100)}%</span>
               </p>
             </div>
@@ -224,7 +224,7 @@ export default function TaskBroadcast({ onTaskBroadcast }: Props) {
 
           {/* Task result */}
           {phase === "completed" && taskResult && (
-            <div className="border-t border-[#2a2a30] pt-3">
+            <div className="border-t border-[#2a1a4a] pt-3">
               <p className="font-syne text-[10px] uppercase tracking-widest text-accent mb-2">
                 Result
               </p>
@@ -236,14 +236,14 @@ export default function TaskBroadcast({ onTaskBroadcast }: Props) {
 
           {/* Error */}
           {(phase === "failed" || error) && error && (
-            <div className="border-t border-[#2a2a30] pt-3">
+            <div className="border-t border-[#2a1a4a] pt-3">
               <p className="font-syne text-xs text-red-400">{error}</p>
             </div>
           )}
 
           <button
             onClick={reset}
-            className="font-syne text-xs text-[#6b6b78] hover:text-text transition-colors text-left"
+            className="font-syne text-xs text-[#8866aa] hover:text-text transition-colors text-left"
           >
             New task
           </button>

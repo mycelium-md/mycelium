@@ -35,19 +35,19 @@ export default function NetworkPage() {
   return (
     <div className="pt-14 h-screen flex flex-col">
       {/* Top bar */}
-      <div className="border-b border-[#1a1a1f] px-6 py-3 flex items-center justify-between flex-shrink-0">
+      <div className="border-b border-[#1a1a3a] px-6 py-3 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-6">
           <h1 className="font-syne font-600 text-sm text-text">Network</h1>
-          <span className="font-syne text-xs text-[#6b6b78]">
+          <span className="font-syne text-xs text-[#8866aa]">
             {data.nodes.length} nodes
           </span>
-          <span className="font-syne text-xs text-[#6b6b78]">
+          <span className="font-syne text-xs text-[#8866aa]">
             {data.edges.length} active edges
           </span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          <span className="font-syne text-[10px] text-[#6b6b78] uppercase tracking-wider">
+          <span className="font-syne text-[10px] text-[#8866aa] uppercase tracking-wider">
             Live
           </span>
         </div>
@@ -61,43 +61,43 @@ export default function NetworkPage() {
         <div className="absolute bottom-6 left-6 flex items-center gap-6">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-white opacity-70" />
-            <span className="font-syne text-[10px] text-[#6b6b78]">Idle agent</span>
+            <span className="font-syne text-[10px] text-[#8866aa]">Idle agent</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-accent" />
-            <span className="font-syne text-[10px] text-[#6b6b78]">Active in coalition</span>
+            <span className="font-syne text-[10px] text-[#8866aa]">Active in coalition</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-px bg-accent/40" />
-            <span className="font-syne text-[10px] text-[#6b6b78]">Coalition edge</span>
+            <span className="font-syne text-[10px] text-[#8866aa]">Coalition edge</span>
           </div>
         </div>
 
         {/* Selected node panel */}
         {selected && (
-          <div className="absolute top-6 right-6 bg-bg border border-[#2a2a30] p-5 w-72">
+          <div className="absolute top-6 right-6 bg-bg border border-[#2a1a4a] p-5 w-72">
             <div className="flex items-start justify-between mb-4">
               <div>
                 <p className="font-syne font-600 text-sm text-text">{selected.name}</p>
-                <p className="font-syne text-xs text-[#6b6b78] mt-0.5">
+                <p className="font-syne text-xs text-[#8866aa] mt-0.5">
                   {selected.taskCount} task{selected.taskCount !== 1 ? "s" : ""} completed
                 </p>
               </div>
               <button
                 onClick={() => setSelected(null)}
-                className="font-syne text-xs text-[#6b6b78] hover:text-text"
+                className="font-syne text-xs text-[#8866aa] hover:text-text"
               >
                 close
               </button>
             </div>
 
             <div className="mb-4">
-              <p className="font-syne text-[10px] uppercase tracking-wider text-[#6b6b78] mb-2">
+              <p className="font-syne text-[10px] uppercase tracking-wider text-[#8866aa] mb-2">
                 Capabilities
               </p>
               <div className="flex flex-wrap gap-1">
                 {selected.capabilities.map((cap) => (
-                  <span key={cap} className="font-syne text-[10px] px-1.5 py-0.5 bg-[#1a1a1f] text-[#9999aa]">
+                  <span key={cap} className="font-syne text-[10px] px-1.5 py-0.5 bg-[#1a1a3a] text-[#9988bb]">
                     {cap}
                   </span>
                 ))}
@@ -105,16 +105,16 @@ export default function NetworkPage() {
             </div>
 
             <div>
-              <p className="font-syne text-[10px] uppercase tracking-wider text-[#6b6b78] mb-2">
+              <p className="font-syne text-[10px] uppercase tracking-wider text-[#8866aa] mb-2">
                 Status
               </p>
               <div className="flex items-center gap-2">
                 <span
                   className={`w-1.5 h-1.5 rounded-full ${
-                    selected.activeCoalition ? "bg-accent animate-pulse" : "bg-[#3a3a40]"
+                    selected.activeCoalition ? "bg-accent animate-pulse" : "bg-[#3a2a5a]"
                   }`}
                 />
-                <span className="font-syne text-xs text-[#9999aa]">
+                <span className="font-syne text-xs text-[#9988bb]">
                   {selected.activeCoalition ? "Active in coalition" : "Idle"}
                 </span>
               </div>
@@ -125,10 +125,10 @@ export default function NetworkPage() {
         {data.nodes.length === 0 && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="text-center">
-              <p className="font-syne text-sm text-[#6b6b78] mb-2">
+              <p className="font-syne text-sm text-[#8866aa] mb-2">
                 No agents in the network.
               </p>
-              <p className="font-syne text-xs text-[#3a3a40]">
+              <p className="font-syne text-xs text-[#3a2a5a]">
                 Open the playground to register agents.
               </p>
             </div>

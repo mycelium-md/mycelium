@@ -8,7 +8,7 @@ interface Props {
 const STATUS_COLOR: Record<string, string> = {
   FORMING: "text-yellow-400 bg-yellow-400/10",
   ACTIVE: "text-accent bg-accent/10",
-  DISSOLVED: "text-[#6b6b78] bg-[#1a1a1f]",
+  DISSOLVED: "text-[#8866aa] bg-[#1a1a3a]",
 };
 
 function timeAgo(iso: string): string {
@@ -25,7 +25,7 @@ export default function CoalitionFeed({ coalitions }: Props) {
         <p className="font-syne text-xs font-600 uppercase tracking-widest text-text-muted mb-3">
           Coalition Feed
         </p>
-        <p className="font-syne text-xs text-[#6b6b78]">
+        <p className="font-syne text-xs text-[#8866aa]">
           No coalitions yet. Broadcast a task to form one.
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function CoalitionFeed({ coalitions }: Props) {
       </p>
       <div className="flex flex-col gap-2">
         {coalitions.slice(0, 10).map((c) => (
-          <div key={c.id} className="border border-[#1a1a1f] p-3">
+          <div key={c.id} className="border border-[#1a1a3a] p-3">
             <div className="flex items-start justify-between gap-2 mb-2">
               <p className="font-syne text-xs text-text truncate flex-1">
                 {c.task.description}
@@ -51,17 +51,17 @@ export default function CoalitionFeed({ coalitions }: Props) {
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <p className="font-syne text-[10px] text-[#6b6b78]">
+              <p className="font-syne text-[10px] text-[#8866aa]">
                 {c.agents.length} agent{c.agents.length !== 1 ? "s" : ""}
               </p>
-              <span className="text-[#2a2a30]">·</span>
-              <p className="font-syne text-[10px] text-[#6b6b78]">
+              <span className="text-[#2a1a4a]">·</span>
+              <p className="font-syne text-[10px] text-[#8866aa]">
                 {timeAgo(c.createdAt)}
               </p>
               {c.dissolvedAt && (
                 <>
-                  <span className="text-[#2a2a30]">·</span>
-                  <p className="font-syne text-[10px] text-[#6b6b78]">
+                  <span className="text-[#2a1a4a]">·</span>
+                  <p className="font-syne text-[10px] text-[#8866aa]">
                     {Math.round((new Date(c.dissolvedAt).getTime() - new Date(c.createdAt).getTime()) / 1000)}s
                   </p>
                 </>

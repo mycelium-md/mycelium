@@ -5,6 +5,16 @@
 :root {
   --font-syne: 'Syne', sans-serif;
   --font-instrument-serif: 'Instrument Serif', serif;
+
+  /* ── Brand palette (extracted from banner) ── */
+  --accent:         #9B5FE3;   /* core violet-purple */
+  --accent-bright:  #C084F5;   /* light purple highlight */
+  --accent-deep:    #6A1FA8;   /* deep purple */
+  --accent-glow:    #B066FF;   /* purple glow bloom */
+  --spark-orange:   #FF8C42;   /* warm spark */
+  --spark-cyan:     #4FC3F7;   /* cool spark */
+  --bg:             #08081a;   /* near-black navy */
+  --bg-surface:     #0d0d2b;   /* dark indigo-black surface */
 }
 
 * {
@@ -16,16 +26,16 @@ html {
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #f5f5f0;
+  background-color: #08081a;
+  color: #f0eeff;
   font-family: var(--font-syne);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #5DCAA5;
-  color: #0a0a0a;
+  background: #9B5FE3;
+  color: #f0eeff;
 }
 
 /* Scrollbar */
@@ -34,26 +44,26 @@ body {
   height: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #111114;
+  background: #0d0d2b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a30;
+  background: #2a1a4a;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #5DCAA5;
+  background: #9B5FE3;
 }
 
 /* Section dividers */
 .section-rule {
   border: none;
-  border-top: 1px solid #2a2a30;
+  border-top: 1px solid #2a1a4a;
   margin: 0;
 }
 
-/* Teal accent text */
+/* Purple accent text */
 .text-accent {
-  color: #5DCAA5;
+  color: #9B5FE3;
 }
 
 /* Monospace for code */
@@ -82,6 +92,11 @@ body {
   50%       { transform: scale(1.15); opacity: 0.85; }
 }
 
+@keyframes purpleGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(155, 95, 227, 0.3); }
+  50%       { box-shadow: 0 0 40px rgba(176, 102, 255, 0.6); }
+}
+
 .animate-line-reveal {
   animation: lineReveal 0.9s ease-out forwards;
 }
@@ -93,6 +108,9 @@ body {
 }
 .animate-pulse-glow {
   animation: pulseGlow 3s ease-in-out infinite;
+}
+.animate-purple-glow {
+  animation: purpleGlow 3s ease-in-out infinite;
 }
 
 /* Reveal on scroll — hidden by default */
@@ -124,22 +142,22 @@ pre {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6b6b78;
+  color: #6b6b88;
   padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 1px solid #2a2a30;
+  border-bottom: 1px solid #2a1a4a;
 }
 .comparison-table td {
   padding: 1rem;
-  border-bottom: 1px solid #1a1a1f;
+  border-bottom: 1px solid #1a1a2f;
   font-size: 0.875rem;
   vertical-align: top;
 }
 .comparison-table tr.mycelium-row td {
-  border-left: 2px solid #5DCAA5;
+  border-left: 2px solid #9B5FE3;
 }
 .comparison-table tr.mycelium-row td:first-child {
-  color: #5DCAA5;
+  color: #C084F5;
   font-weight: 600;
 }
 

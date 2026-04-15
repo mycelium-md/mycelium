@@ -76,7 +76,7 @@ const LAYERS = [
 export default function TechStackSection() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-section">
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#6b6b78] mb-16">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-16">
         03 — Architecture
       </p>
 
@@ -91,13 +91,13 @@ export default function TechStackSection() {
         {LAYERS.map((layer, i) => (
           <div
             key={layer.num}
-            className={`grid grid-cols-12 gap-4 py-6 border-b border-[#1a1a1f] group hover:bg-[#0d0d0d] transition-colors -mx-6 px-6 ${
+            className={`grid grid-cols-12 gap-4 py-6 border-b border-[#1a1a3a] group hover:bg-[#0d0d0d] transition-colors -mx-6 px-6 ${
               i % 2 === 1 ? "" : ""
             }`}
           >
             {/* Number */}
             <div className="col-span-1">
-              <span className="font-syne text-xs text-[#3a3a40] font-600">{layer.num}</span>
+              <span className="font-syne text-xs text-[#3a2a5a] font-600">{layer.num}</span>
             </div>
 
             {/* Name */}
@@ -115,7 +115,7 @@ export default function TechStackSection() {
                   href={tech.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-syne text-xs text-[#6b6b78] hover:text-accent transition-colors"
+                  className="font-syne text-xs text-[#8866aa] hover:text-accent transition-colors"
                 >
                   {tech.name}
                   <span className="ml-0.5 opacity-40">↗</span>

@@ -62,17 +62,17 @@ export default function PlaygroundPage() {
   return (
     <div className="pt-14 min-h-screen flex flex-col">
       {/* Top bar */}
-      <div className="border-b border-[#1a1a1f] px-6 py-4 flex items-center justify-between">
+      <div className="border-b border-[#1a1a3a] px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="font-syne font-700 text-base text-text">Playground</h1>
-          <p className="font-syne text-xs text-[#6b6b78]">
+          <p className="font-syne text-xs text-[#8866aa]">
             Live agent mesh — register agents, broadcast tasks, watch coalitions form
           </p>
         </div>
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="font-syne text-xs text-[#6b6b78]">
+            <span className="font-syne text-xs text-[#8866aa]">
               {agents.length} agent{agents.length !== 1 ? "s" : ""} online
             </span>
           </div>
@@ -82,16 +82,16 @@ export default function PlaygroundPage() {
       {/* Main content */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         {/* Left panel */}
-        <div className="lg:w-80 xl:w-96 border-r border-[#1a1a1f] overflow-y-auto flex-shrink-0">
+        <div className="lg:w-80 xl:w-96 border-r border-[#1a1a3a] overflow-y-auto flex-shrink-0">
           <div className="p-5 flex flex-col gap-8">
             <AgentPanel
               agents={agents}
               onAgentRegistered={handleAgentRegistered}
               onAgentRemoved={handleAgentRemoved}
             />
-            <hr className="border-[#1a1a1f]" />
+            <hr className="border-[#1a1a3a]" />
             <TaskBroadcast onTaskBroadcast={handleTaskBroadcast} />
-            <hr className="border-[#1a1a1f]" />
+            <hr className="border-[#1a1a3a]" />
             <CoalitionFeed coalitions={coalitions} />
           </div>
         </div>
@@ -100,15 +100,15 @@ export default function PlaygroundPage() {
         <div className="flex-1 relative min-h-[400px]">
           {loading ? (
             <div className="absolute inset-0 flex items-center justify-center">
-              <p className="font-syne text-xs text-[#6b6b78]">Connecting to mesh...</p>
+              <p className="font-syne text-xs text-[#8866aa]">Connecting to mesh...</p>
             </div>
           ) : agents.length === 0 ? (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <p className="font-syne text-sm text-[#6b6b78] mb-2">
+                <p className="font-syne text-sm text-[#8866aa] mb-2">
                   No agents in the network.
                 </p>
-                <p className="font-syne text-xs text-[#3a3a40]">
+                <p className="font-syne text-xs text-[#3a2a5a]">
                   Register an agent on the left to begin.
                 </p>
               </div>

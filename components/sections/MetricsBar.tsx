@@ -78,7 +78,7 @@ export default function MetricsBar() {
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:divide-x md:divide-[#2a2a30]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:divide-x md:divide-[#2a1a4a]">
         {metrics.map((m, i) => (
           <div key={m.label} className={`px-0 md:px-10 ${i === 0 ? "md:pl-0" : ""} ${i === metrics.length - 1 ? "md:pr-0" : ""} py-4 md:py-0`}>
             <p
@@ -87,7 +87,7 @@ export default function MetricsBar() {
             >
               <CountUp target={m.value} />
             </p>
-            <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#6b6b78]">
+            <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa]">
               {m.label}
             </p>
           </div>

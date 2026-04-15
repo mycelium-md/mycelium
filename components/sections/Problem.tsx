@@ -39,25 +39,25 @@ export default async function ProblemSection() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-section">
       {/* Section label */}
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#6b6b78] mb-12">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-12">
         01 — The Problem
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Code block */}
         <div>
-          <div className="border border-[#2a2a30] overflow-hidden">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2a2a30] bg-[#111114]">
-              <div className="w-2 h-2 rounded-full bg-[#3a3a40]" />
-              <div className="w-2 h-2 rounded-full bg-[#3a3a40]" />
-              <div className="w-2 h-2 rounded-full bg-[#3a3a40]" />
-              <span className="ml-2 font-mono text-[10px] text-[#6b6b78]">
+          <div className="border border-[#2a1a4a] overflow-hidden">
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2a1a4a] bg-[#0d0d2b]">
+              <div className="w-2 h-2 rounded-full bg-[#3a2a5a]" />
+              <div className="w-2 h-2 rounded-full bg-[#3a2a5a]" />
+              <div className="w-2 h-2 rounded-full bg-[#3a2a5a]" />
+              <span className="ml-2 font-mono text-[10px] text-[#8866aa]">
                 orchestration.py
               </span>
             </div>
             <div
               className="p-4 overflow-x-auto text-xs"
-              style={{ background: "#0d1117" }}
+              style={{ background: "#080818" }}
               dangerouslySetInnerHTML={{ __html: highlighted }}
             />
           </div>
@@ -72,7 +72,7 @@ export default async function ProblemSection() {
             Every multi-agent framework today requires a conductor.
           </h2>
 
-          <div className="flex flex-col gap-4 text-[#9999aa] font-syne text-sm leading-relaxed">
+          <div className="flex flex-col gap-4 text-[#9988bb] font-syne text-sm leading-relaxed">
             <p>
               LangGraph. CrewAI. AutoGen. They all share the same architectural assumption:
               one process that knows the full task graph, routes messages between agents, and

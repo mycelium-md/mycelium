@@ -72,16 +72,16 @@ async function CodeBlock({ code, lang, filename }: CodeBlockProps) {
     html = `<pre><code>${code}</code></pre>`;
   }
   return (
-    <div className="border border-[#2a2a30] overflow-hidden">
+    <div className="border border-[#2a1a4a] overflow-hidden">
       {filename && (
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#2a2a30] bg-[#111114]">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#3a3a40]" />
-          <span className="font-mono text-[10px] text-[#6b6b78]">{filename}</span>
+        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#2a1a4a] bg-[#0d0d2b]">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#3a2a5a]" />
+          <span className="font-mono text-[10px] text-[#8866aa]">{filename}</span>
         </div>
       )}
       <div
         className="p-4 overflow-x-auto text-xs"
-        style={{ background: "#0d1117" }}
+        style={{ background: "#080818" }}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
@@ -159,7 +159,7 @@ export default async function DocsPage() {
           <h1 className="font-syne font-700 text-4xl tracking-tight text-text mb-4">
             Mycelium API Reference
           </h1>
-          <p className="font-syne text-sm text-[#9999aa] leading-relaxed max-w-xl">
+          <p className="font-syne text-sm text-[#9988bb] leading-relaxed max-w-xl">
             The Mycelium API lets you register agents, broadcast tasks, and observe coalition
             formation in real time. All endpoints return JSON. The stats endpoint is SSE.
           </p>
@@ -170,19 +170,19 @@ export default async function DocsPage() {
           <h2 className="font-syne font-700 text-xl text-text mb-8">Quick start</h2>
           <div className="flex flex-col gap-6">
             <div>
-              <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#6b6b78] mb-3">
+              <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa] mb-3">
                 1. Register an agent
               </p>
               <CodeBlock code={REGISTER_EXAMPLE} lang="typescript" filename="register.ts" />
             </div>
             <div>
-              <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#6b6b78] mb-3">
+              <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa] mb-3">
                 2. Broadcast a task
               </p>
               <CodeBlock code={BROADCAST_EXAMPLE} lang="typescript" filename="broadcast.ts" />
             </div>
             <div>
-              <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#6b6b78] mb-3">
+              <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa] mb-3">
                 Python client
               </p>
               <CodeBlock code={PYTHON_EXAMPLE} lang="python" filename="client.py" />
@@ -195,7 +195,7 @@ export default async function DocsPage() {
         {/* Capabilities */}
         <section className="mb-16">
           <h2 className="font-syne font-700 text-xl text-text mb-6">Capabilities</h2>
-          <p className="font-syne text-sm text-[#9999aa] mb-6">
+          <p className="font-syne text-sm text-[#9988bb] mb-6">
             Each agent declares a set of capabilities at registration time. Capability matching
             runs via Claude (structured output) on every task broadcast.
           </p>
@@ -208,9 +208,9 @@ export default async function DocsPage() {
               { name: "file_operations", desc: "Read/write files, format conversion" },
               { name: "api_calls", desc: "Call external APIs and services" },
             ].map((cap) => (
-              <div key={cap.name} className="border border-[#1a1a1f] p-4">
+              <div key={cap.name} className="border border-[#1a1a3a] p-4">
                 <p className="font-mono text-xs text-accent mb-1">{cap.name}</p>
-                <p className="font-syne text-xs text-[#9999aa]">{cap.desc}</p>
+                <p className="font-syne text-xs text-[#9988bb]">{cap.desc}</p>
               </div>
             ))}
           </div>
@@ -223,7 +223,7 @@ export default async function DocsPage() {
           <h2 className="font-syne font-700 text-xl text-text mb-8">Endpoints</h2>
           <div className="flex flex-col gap-0">
             {ENDPOINTS.map((ep) => (
-              <div key={`${ep.method}${ep.path}`} className="border-b border-[#1a1a1f] py-5">
+              <div key={`${ep.method}${ep.path}`} className="border-b border-[#1a1a3a] py-5">
                 <div className="flex items-start gap-4 mb-2">
                   <span
                     className={`font-mono text-xs flex-shrink-0 ${
@@ -231,20 +231,20 @@ export default async function DocsPage() {
                         ? "text-accent"
                         : ep.method === "DELETE"
                         ? "text-red-400"
-                        : "text-[#9999aa]"
+                        : "text-[#9988bb]"
                     }`}
                   >
                     {ep.method}
                   </span>
                   <span className="font-mono text-xs text-text">{ep.path}</span>
-                  <span className="font-syne text-xs text-[#6b6b78]">{ep.desc}</span>
+                  <span className="font-syne text-xs text-[#8866aa]">{ep.desc}</span>
                 </div>
                 <div className="pl-14 flex flex-col gap-1">
-                  <p className="font-syne text-[10px] text-[#6b6b78]">
-                    Body: <span className="font-mono text-[#9999aa]">{ep.body}</span>
+                  <p className="font-syne text-[10px] text-[#8866aa]">
+                    Body: <span className="font-mono text-[#9988bb]">{ep.body}</span>
                   </p>
-                  <p className="font-syne text-[10px] text-[#6b6b78]">
-                    Response: <span className="font-mono text-[#9999aa]">{ep.response}</span>
+                  <p className="font-syne text-[10px] text-[#8866aa]">
+                    Response: <span className="font-mono text-[#9988bb]">{ep.response}</span>
                   </p>
                 </div>
               </div>
@@ -257,18 +257,18 @@ export default async function DocsPage() {
         {/* Coalition lifecycle */}
         <section className="mb-16">
           <h2 className="font-syne font-700 text-xl text-text mb-6">Coalition lifecycle</h2>
-          <div className="flex items-center gap-4 font-syne text-sm text-[#9999aa] flex-wrap">
-            <span className="border border-[#2a2a30] px-3 py-1.5">PENDING</span>
-            <span className="text-[#3a3a40]">→</span>
-            <span className="border border-[#2a2a30] px-3 py-1.5">MATCHING</span>
-            <span className="text-[#3a3a40]">→</span>
+          <div className="flex items-center gap-4 font-syne text-sm text-[#9988bb] flex-wrap">
+            <span className="border border-[#2a1a4a] px-3 py-1.5">PENDING</span>
+            <span className="text-[#3a2a5a]">→</span>
+            <span className="border border-[#2a1a4a] px-3 py-1.5">MATCHING</span>
+            <span className="text-[#3a2a5a]">→</span>
             <span className="border border-accent text-accent px-3 py-1.5">FORMING</span>
-            <span className="text-[#3a3a40]">→</span>
+            <span className="text-[#3a2a5a]">→</span>
             <span className="border border-accent text-accent px-3 py-1.5">ACTIVE</span>
-            <span className="text-[#3a3a40]">→</span>
-            <span className="border border-[#2a2a30] px-3 py-1.5">DISSOLVED</span>
+            <span className="text-[#3a2a5a]">→</span>
+            <span className="border border-[#2a1a4a] px-3 py-1.5">DISSOLVED</span>
           </div>
-          <div className="mt-6 font-syne text-sm text-[#9999aa] leading-relaxed">
+          <div className="mt-6 font-syne text-sm text-[#9988bb] leading-relaxed">
             <p>
               Coalition formation uses the Contract Net Protocol: the task description is analyzed
               by Claude (haiku) to extract required capabilities. A greedy set cover algorithm

@@ -93,7 +93,7 @@ function StepCanvas({ type, active }: StepCanvasProps) {
             targetNode.x + (newNode.x - targetNode.x) * joinProgress,
             targetNode.y + (newNode.y - targetNode.y) * joinProgress
           );
-          ctx.strokeStyle = `rgba(93,202,165,${joinProgress * 0.6})`;
+          ctx.strokeStyle = `rgba(155,95,227,${joinProgress * 0.6})`;
           ctx.lineWidth = 1.5;
           ctx.stroke();
 
@@ -101,7 +101,7 @@ function StepCanvas({ type, active }: StepCanvasProps) {
           const pulse = 1 + 0.2 * Math.sin(t * 3);
           ctx.beginPath();
           ctx.arc(newNode.x, newNode.y, 7 * pulse * joinProgress, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(93,202,165,${joinProgress})`;
+          ctx.fillStyle = `rgba(155,95,227,${joinProgress})`;
           ctx.fill();
         }
       } else if (type === "broadcast") {
@@ -125,7 +125,7 @@ function StepCanvas({ type, active }: StepCanvasProps) {
             const alpha = Math.max(0, 0.3 - currentR / 120);
             ctx.beginPath();
             ctx.arc(cx, cy, currentR, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(93,202,165,${alpha})`;
+            ctx.strokeStyle = `rgba(155,95,227,${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -134,7 +134,7 @@ function StepCanvas({ type, active }: StepCanvasProps) {
           const pulse = 1 + 0.15 * Math.sin(t * 4);
           ctx.beginPath();
           ctx.arc(cx, cy - 50, 8 * pulse, 0, Math.PI * 2);
-          ctx.fillStyle = "#5DCAA5";
+          ctx.fillStyle = "#9B5FE3";
           ctx.fill();
         }
       } else {
@@ -161,7 +161,7 @@ function StepCanvas({ type, active }: StepCanvasProps) {
               ctx.beginPath();
               ctx.moveTo(coalition[i].x, coalition[i].y);
               ctx.lineTo(coalition[j].x, coalition[j].y);
-              ctx.strokeStyle = `rgba(93,202,165,${progress * 0.5})`;
+              ctx.strokeStyle = `rgba(155,95,227,${progress * 0.5})`;
               ctx.lineWidth = 2;
               ctx.stroke();
             }
@@ -175,7 +175,7 @@ function StepCanvas({ type, active }: StepCanvasProps) {
           ctx.beginPath();
           ctx.arc(nodes[i].x, nodes[i].y, 5 * pulse, 0, Math.PI * 2);
           ctx.fillStyle = isCoalition && active
-            ? `rgba(93,202,165,${0.5 + progress * 0.5})`
+            ? `rgba(155,95,227,${0.5 + progress * 0.5})`
             : "rgba(255,255,255,0.4)";
           ctx.fill();
         }
@@ -219,7 +219,7 @@ export default function HowItWorksSection() {
 
   return (
     <section ref={sectionRef} className="max-w-7xl mx-auto px-6 py-section">
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#6b6b78] mb-16">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-16">
         02 — How It Works
       </p>
 
@@ -231,12 +231,12 @@ export default function HowItWorksSection() {
               key={step.num}
               ref={(el) => { stepRefs.current[i] = el; }}
               className={`border-l-2 pl-8 py-10 transition-all duration-500 ${
-                activeStep === i ? "border-accent" : "border-[#2a2a30]"
+                activeStep === i ? "border-accent" : "border-[#2a1a4a]"
               }`}
             >
               <p
                 className={`font-syne text-xs font-600 uppercase tracking-[0.2em] mb-3 transition-colors ${
-                  activeStep === i ? "text-accent" : "text-[#6b6b78]"
+                  activeStep === i ? "text-accent" : "text-[#8866aa]"
                 }`}
               >
                 {step.num}
@@ -250,7 +250,7 @@ export default function HowItWorksSection() {
               </h3>
               <p
                 className={`font-syne text-sm leading-relaxed transition-colors ${
-                  activeStep === i ? "text-[#9999aa]" : "text-[#9999aa]/40"
+                  activeStep === i ? "text-[#9988bb]" : "text-[#9988bb]/40"
                 }`}
               >
                 {step.body}
@@ -261,7 +261,7 @@ export default function HowItWorksSection() {
 
         {/* Canvas */}
         <div className="lg:sticky lg:top-24 h-[340px] lg:h-auto">
-          <div className="w-full h-full border border-[#1a1a1f] bg-[#0d0d0d]">
+          <div className="w-full h-full border border-[#1a1a3a] bg-[#0d0d0d]">
             <StepCanvas
               type={STEPS[activeStep].animation as "register" | "broadcast" | "dissolve"}
               active

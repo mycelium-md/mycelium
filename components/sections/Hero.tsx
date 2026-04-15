@@ -33,7 +33,7 @@ export default function HeroSection() {
 
           {/* Subhead */}
           <p
-            className="font-serif italic text-[#f5f5f0]/80 mb-12"
+            className="font-serif italic text-[#f0eeff]/80 mb-12"
             style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)" }}
           >
             No orchestrator. No conductor.<br />No single point of failure.
@@ -59,8 +59,8 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-12 left-6 flex items-center gap-3">
-        <div className="w-px h-8 bg-[#2a2a30]" />
-        <span className="font-syne text-[10px] uppercase tracking-[0.2em] text-[#6b6b78]">
+        <div className="w-px h-8 bg-[#2a1a4a]" />
+        <span className="font-syne text-[10px] uppercase tracking-[0.2em] text-[#8866aa]">
           Scroll
         </span>
       </div>
