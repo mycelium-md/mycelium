@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id           String           @id @default(uuid())
+  name         String
+  capabilities String           // JSON array stored as string
+  createdAt    DateTime         @default(now())
+  taskCount    Int              @default(0)
+  coalitions   CoalitionAgent[]
+}
+
+model Task {
+  id           String        @id @default(uuid())
+  description  String
+  requiredCaps String        // JSON array stored as string
+  status       String        @default("PENDING") // PENDING | MATCHING | EXECUTING | COMPLETED | FAILED
+  result       String?
+  createdAt    DateTime      @default(now())
+  completedAt  DateTime?
+  coalition    Coalition?
+}
+
+model Coalition {
+  id          String           @id @default(uuid())
+  taskId      String           @unique
+  status      String           @default("FORMING") // FORMING | ACTIVE | DISSOLVED
+  createdAt   DateTime         @default(now())
+  dissolvedAt DateTime?
+  agents      CoalitionAgent[]
+  task        Task             @relation(fields: [taskId], references: [id])
+}
+
+model CoalitionAgent {
+  coalition   Coalition @relation(fields: [coalitionId], references: [id])
+  coalitionId String
+  agent       Agent     @relation(fields: [agentId], references: [id])
+  agentId     String
+
+  @@id([coalitionId, agentId])
+}
