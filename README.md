@@ -85,3 +85,4 @@ Confidence score (0–1) measures what fraction of required capabilities the coa
 The protocol is open. Implementation PRs, capability extensions, and runtime integrations welcome.
 
 Apache 2.0. Built in public.
+# Trigger Vercel redeploy — Wed Apr 15 01:00:04 UTC 2026
