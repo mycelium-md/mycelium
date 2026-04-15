@@ -400,9 +400,8 @@ export default function NetworkGraph({ data, onNodeClick, className = "" }: Prop
         <EffectComposer>
           <Bloom
             intensity={1.6}
-            luminanceThreshold={0.05}
+            luminanceThreshold={0.1}
             luminanceSmoothing={0.85}
-            mipmapBlur
           />
         </EffectComposer>
       </Canvas>
