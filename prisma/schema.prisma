@@ -1,31 +1,32 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Mycelium Prisma Schema
+// SQLite for local dev (DATABASE_URL="file:./mycelium.db")
+// Postgres for production (DATABASE_URL="postgresql://...")
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = env("DATABASE_PROVIDER")
   url      = env("DATABASE_URL")
 }
 
 model Agent {
   id           String           @id @default(uuid())
   name         String
-  capabilities String           // JSON array stored as string
+  capabilities String           // JSON array stored as string (compat with SQLite + Postgres)
   createdAt    DateTime         @default(now())
   taskCount    Int              @default(0)
   coalitions   CoalitionAgent[]
 }
 
 model Task {
-  id           String        @id @default(uuid())
+  id           String     @id @default(uuid())
   description  String
-  requiredCaps String        // JSON array stored as string
-  status       String        @default("PENDING") // PENDING | MATCHING | EXECUTING | COMPLETED | FAILED
+  requiredCaps String     // JSON array stored as string
+  status       String     @default("PENDING")
   result       String?
-  createdAt    DateTime      @default(now())
+  createdAt    DateTime   @default(now())
   completedAt  DateTime?
   coalition    Coalition?
 }
@@ -33,7 +34,7 @@ model Task {
 model Coalition {
   id          String           @id @default(uuid())
   taskId      String           @unique
-  status      String           @default("FORMING") // FORMING | ACTIVE | DISSOLVED
+  status      String           @default("FORMING")
   createdAt   DateTime         @default(now())
   dissolvedAt DateTime?
   agents      CoalitionAgent[]
