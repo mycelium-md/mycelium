@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextRequest, NextResponse } from "next/server";
 import { listCoalitions } from "@/lib/coalition-manager";
 import type { ApiResponse, CoalitionRecord } from "@/lib/types";
