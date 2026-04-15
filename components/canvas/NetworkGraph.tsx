@@ -222,13 +222,9 @@ function NodeMesh({ node, isActive, isHovered, onClick, onHover }: NodeMeshProps
       <Text
         position={[node.x, node.y - r - 0.22, node.z]}
         fontSize={0.11}
-        color={isActive ? "#C084F5" : "rgba(192,160,255,0.75)"}
+        color={isActive ? "#C084F5" : "#9988bb"}
         anchorX="center"
         anchorY="top"
-        font="/fonts/Syne-Regular.ttf"
-        characters="abcdefghijklmnopqrstuvwxyz0123456789-_"
-        outlineWidth={0.002}
-        outlineColor="#08081a"
       >
         {node.name}
       </Text>
