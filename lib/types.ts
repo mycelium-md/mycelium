@@ -4,7 +4,20 @@ export type Capability =
   | "text_generation"
   | "data_analysis"
   | "file_operations"
-  | "api_calls";
+  | "api_calls"
+  | "summarization"
+  | "translation"
+  | "reasoning"
+  | "planning"
+  | "task_decomposition"
+  | "code_generation"
+  | "code_review"
+  | "debugging"
+  | "security_analysis"
+  | "data_extraction"
+  | "monitoring"
+  | "alerting"
+  | "knowledge_retrieval";
 
 export const ALL_CAPABILITIES: Capability[] = [
   "web_search",
@@ -13,6 +26,20 @@ export const ALL_CAPABILITIES: Capability[] = [
   "data_analysis",
   "file_operations",
   "api_calls",
+  // extended capabilities
+  "summarization",
+  "translation",
+  "reasoning",
+  "planning",
+  "task_decomposition",
+  "code_generation",
+  "code_review",
+  "debugging",
+  "security_analysis",
+  "data_extraction",
+  "monitoring",
+  "alerting",
+  "knowledge_retrieval",
 ];
 
 export interface AgentRecord {

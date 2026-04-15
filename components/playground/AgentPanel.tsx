@@ -16,6 +16,19 @@ const CAP_LABELS: Record<Capability, string> = {
   data_analysis: "data_analysis",
   file_operations: "file_operations",
   api_calls: "api_calls",
+  summarization: "summarization",
+  translation: "translation",
+  reasoning: "reasoning",
+  planning: "planning",
+  task_decomposition: "task_decomposition",
+  code_generation: "code_generation",
+  code_review: "code_review",
+  debugging: "debugging",
+  security_analysis: "security_analysis",
+  data_extraction: "data_extraction",
+  monitoring: "monitoring",
+  alerting: "alerting",
+  knowledge_retrieval: "knowledge_retrieval",
 };
 
 export default function AgentPanel({ agents, onAgentRegistered, onAgentRemoved }: Props) {
