@@ -37,7 +37,7 @@ export async function GET(): Promise<NextResponse> {
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const ip = req.headers.get("x-forwarded-for") ?? "unknown";
-  const rl = checkRateLimit(`agents:register:${ip}`, { maxRequests: 10, windowMs: 60_000 });
+  const rl = checkRateLimit(`agents:register:${ip}`, { maxRequests: 50, windowMs: 60_000 });
   if (!rl.allowed) {
     return NextResponse.json(
       { error: "Rate limit exceeded. Try again in a moment." } satisfies ApiResponse<never>,
