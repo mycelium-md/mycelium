@@ -39,8 +39,8 @@ export default function HowItWorksSection() {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-section">
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-16">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-section">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-10 md:mb-16">
         02 — How It Works
       </p>
 
@@ -49,7 +49,7 @@ export default function HowItWorksSection() {
           <div
             key={step.num}
             ref={(el) => { stepRefs.current[i] = el; }}
-            className={`border-l-2 pl-8 py-10 transition-all duration-500 ${
+            className={`border-l-2 pl-6 md:pl-8 py-8 md:py-10 transition-all duration-500 ${
               activeStep === i ? "border-accent" : "border-[#2a1a4a]"
             }`}
           >
@@ -61,7 +61,7 @@ export default function HowItWorksSection() {
               {step.num}
             </p>
             <h3
-              className={`font-syne font-700 text-xl mb-4 transition-colors ${
+              className={`font-syne font-700 text-lg md:text-xl mb-3 md:mb-4 transition-colors ${
                 activeStep === i ? "text-text" : "text-text/50"
               }`}
             >

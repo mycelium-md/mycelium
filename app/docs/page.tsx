@@ -150,13 +150,13 @@ const ENDPOINTS = [
 export default async function DocsPage() {
   return (
     <main className="pt-14">
-      <div className="max-w-4xl mx-auto px-6 py-16">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">
         {/* Header */}
-        <div className="mb-16">
-          <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-accent mb-6">
+        <div className="mb-12 md:mb-16">
+          <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-accent mb-4 md:mb-6">
             Documentation
           </p>
-          <h1 className="font-syne font-700 text-4xl tracking-tight text-text mb-4">
+          <h1 className="font-syne font-700 text-2xl md:text-4xl tracking-tight text-text mb-4">
             Mycelium API Reference
           </h1>
           <p className="font-syne text-sm text-[#9988bb] leading-relaxed max-w-xl">
@@ -166,8 +166,8 @@ export default async function DocsPage() {
         </div>
 
         {/* Quick start */}
-        <section className="mb-16">
-          <h2 className="font-syne font-700 text-xl text-text mb-8">Quick start</h2>
+        <section className="mb-12 md:mb-16">
+          <h2 className="font-syne font-700 text-xl text-text mb-6 md:mb-8">Quick start</h2>
           <div className="flex flex-col gap-6">
             <div>
               <p className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa] mb-3">
@@ -190,11 +190,11 @@ export default async function DocsPage() {
           </div>
         </section>
 
-        <hr className="section-rule mb-16" />
+        <hr className="section-rule mb-12 md:mb-16" />
 
         {/* Capabilities */}
-        <section className="mb-16">
-          <h2 className="font-syne font-700 text-xl text-text mb-6">Capabilities</h2>
+        <section className="mb-12 md:mb-16">
+          <h2 className="font-syne font-700 text-xl text-text mb-4 md:mb-6">Capabilities</h2>
           <p className="font-syne text-sm text-[#9988bb] mb-6">
             Each agent declares a set of capabilities at registration time. Capability matching
             runs via Claude (structured output) on every task broadcast.
@@ -216,15 +216,16 @@ export default async function DocsPage() {
           </div>
         </section>
 
-        <hr className="section-rule mb-16" />
+        <hr className="section-rule mb-12 md:mb-16" />
 
         {/* Endpoints */}
-        <section className="mb-16">
-          <h2 className="font-syne font-700 text-xl text-text mb-8">Endpoints</h2>
+        <section className="mb-12 md:mb-16">
+          <h2 className="font-syne font-700 text-xl text-text mb-6 md:mb-8">Endpoints</h2>
           <div className="flex flex-col gap-0">
             {ENDPOINTS.map((ep) => (
-              <div key={`${ep.method}${ep.path}`} className="border-b border-[#1a1a3a] py-5">
-                <div className="flex items-start gap-4 mb-2">
+              <div key={`${ep.method}${ep.path}`} className="border-b border-[#1a1a3a] py-4 md:py-5">
+                {/* Method + path + desc */}
+                <div className="flex flex-wrap items-start gap-2 md:gap-4 mb-2">
                   <span
                     className={`font-mono text-xs flex-shrink-0 ${
                       ep.method === "POST"
@@ -237,14 +238,17 @@ export default async function DocsPage() {
                     {ep.method}
                   </span>
                   <span className="font-mono text-xs text-text">{ep.path}</span>
-                  <span className="font-syne text-xs text-[#8866aa]">{ep.desc}</span>
+                  <span className="font-syne text-xs text-[#8866aa] w-full sm:w-auto">{ep.desc}</span>
                 </div>
-                <div className="pl-14 flex flex-col gap-1">
+                {/* Body + response — stacked on mobile */}
+                <div className="flex flex-col gap-1 pl-0 sm:pl-14">
                   <p className="font-syne text-[10px] text-[#8866aa]">
-                    Body: <span className="font-mono text-[#9988bb]">{ep.body}</span>
+                    Body:{" "}
+                    <span className="font-mono text-[#9988bb] break-all">{ep.body}</span>
                   </p>
                   <p className="font-syne text-[10px] text-[#8866aa]">
-                    Response: <span className="font-mono text-[#9988bb]">{ep.response}</span>
+                    Response:{" "}
+                    <span className="font-mono text-[#9988bb] break-all">{ep.response}</span>
                   </p>
                 </div>
               </div>
@@ -252,21 +256,21 @@ export default async function DocsPage() {
           </div>
         </section>
 
-        <hr className="section-rule mb-16" />
+        <hr className="section-rule mb-12 md:mb-16" />
 
         {/* Coalition lifecycle */}
-        <section className="mb-16">
-          <h2 className="font-syne font-700 text-xl text-text mb-6">Coalition lifecycle</h2>
-          <div className="flex items-center gap-4 font-syne text-sm text-[#9988bb] flex-wrap">
-            <span className="border border-[#2a1a4a] px-3 py-1.5">PENDING</span>
+        <section className="mb-12 md:mb-16">
+          <h2 className="font-syne font-700 text-xl text-text mb-4 md:mb-6">Coalition lifecycle</h2>
+          <div className="flex items-center gap-2 md:gap-4 font-syne text-xs md:text-sm text-[#9988bb] flex-wrap">
+            <span className="border border-[#2a1a4a] px-2 md:px-3 py-1 md:py-1.5">PENDING</span>
             <span className="text-[#3a2a5a]">→</span>
-            <span className="border border-[#2a1a4a] px-3 py-1.5">MATCHING</span>
+            <span className="border border-[#2a1a4a] px-2 md:px-3 py-1 md:py-1.5">MATCHING</span>
             <span className="text-[#3a2a5a]">→</span>
-            <span className="border border-accent text-accent px-3 py-1.5">FORMING</span>
+            <span className="border border-accent text-accent px-2 md:px-3 py-1 md:py-1.5">FORMING</span>
             <span className="text-[#3a2a5a]">→</span>
-            <span className="border border-accent text-accent px-3 py-1.5">ACTIVE</span>
+            <span className="border border-accent text-accent px-2 md:px-3 py-1 md:py-1.5">ACTIVE</span>
             <span className="text-[#3a2a5a]">→</span>
-            <span className="border border-[#2a1a4a] px-3 py-1.5">DISSOLVED</span>
+            <span className="border border-[#2a1a4a] px-2 md:px-3 py-1 md:py-1.5">DISSOLVED</span>
           </div>
           <div className="mt-6 font-syne text-sm text-[#9988bb] leading-relaxed">
             <p>

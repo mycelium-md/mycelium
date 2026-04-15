@@ -130,9 +130,9 @@ export default function AgentPanel({ agents, onAgentRegistered, onAgentRemoved }
                   </div>
                   <button
                     onClick={() => remove(agent.id)}
-                    className="font-syne text-xs text-[#8866aa] hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
+                    className="font-syne text-xs text-[#8866aa] hover:text-red-400 opacity-40 md:opacity-0 md:group-hover:opacity-100 transition-all min-h-[44px] px-2 flex items-center"
                   >
-                    remove
+                    ×
                   </button>
                 </div>
                 <div className="flex flex-wrap gap-1">

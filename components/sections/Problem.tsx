@@ -37,15 +37,15 @@ export default async function ProblemSection() {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-section">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-section">
       {/* Section label */}
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-12">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-10 md:mb-12">
         01 — The Problem
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         {/* Code block */}
-        <div>
+        <div className="min-w-0">
           <div className="border border-[#2a1a4a] overflow-hidden">
             <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2a1a4a] bg-[#0d0d2b]">
               <div className="w-2 h-2 rounded-full bg-[#3a2a5a]" />
@@ -67,7 +67,7 @@ export default async function ProblemSection() {
         <div className="flex flex-col gap-6 pt-2">
           <h2
             className="font-syne font-700 tracking-tight text-text"
-            style={{ fontSize: "clamp(1.6rem, 3vw, 2.5rem)", lineHeight: "1.05" }}
+            style={{ fontSize: "clamp(1.4rem, 3vw, 2.5rem)", lineHeight: "1.05" }}
           >
             Every multi-agent framework today requires a conductor.
           </h2>

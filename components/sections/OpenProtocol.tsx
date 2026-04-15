@@ -26,16 +26,16 @@ export default async function OpenProtocolSection() {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-section">
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-16">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-section">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-10 md:mb-16">
         05 — Open Protocol
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <div className="flex flex-col gap-8">
           <h2
             className="font-syne font-700 tracking-tight text-text"
-            style={{ fontSize: "clamp(1.6rem, 3vw, 2.5rem)", lineHeight: "1.05" }}
+            style={{ fontSize: "clamp(1.4rem, 3vw, 2.5rem)", lineHeight: "1.05" }}
           >
             Mycelium is infrastructure,<br />not a product.
           </h2>
@@ -54,27 +54,27 @@ export default async function OpenProtocolSection() {
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
-              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa]">License</span>
+              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa] min-w-[60px]">License</span>
               <span className="font-syne text-xs text-text">Apache 2.0</span>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa]">Source</span>
+              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa] min-w-[60px]">Source</span>
               <a
                 href="https://github.com/mycelium-md/mycelium"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-syne text-xs text-accent hover:underline"
+                className="font-syne text-xs text-accent hover:underline break-all"
               >
                 github.com/mycelium-md/mycelium ↗
               </a>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa]">Skill file</span>
+              <span className="font-syne text-xs uppercase tracking-[0.15em] text-[#8866aa] min-w-[60px]">Skill file</span>
               <a
                 href="/skill.md"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-syne text-xs text-accent hover:underline"
+                className="font-syne text-xs text-accent hover:underline break-all"
               >
                 mycelium.domains/skill.md ↗
               </a>
@@ -83,7 +83,7 @@ export default async function OpenProtocolSection() {
         </div>
 
         {/* SKILL.md embed */}
-        <div>
+        <div className="min-w-0">
           <div className="border border-[#2a1a4a] overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#2a1a4a] bg-[#0d0d2b]">
               <div className="flex items-center gap-2">

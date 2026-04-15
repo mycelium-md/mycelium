@@ -11,8 +11,8 @@ const LINKS = [
 
 export default function FooterSection() {
   return (
-    <footer className="max-w-7xl mx-auto px-6 py-16">
-      <div className="flex flex-col md:flex-row justify-between gap-10 mb-16">
+    <footer className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
+      <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-10 mb-12 md:mb-16">
         {/* Wordmark + tagline */}
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
@@ -31,8 +31,8 @@ export default function FooterSection() {
           </p>
         </div>
 
-        {/* Links */}
-        <nav className="flex gap-10">
+        {/* Links — wrap on mobile */}
+        <nav className="flex flex-wrap gap-x-8 gap-y-4">
           {LINKS.map((link) =>
             link.external ? (
               <a
@@ -40,7 +40,7 @@ export default function FooterSection() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-syne text-xs text-[#8866aa] hover:text-text transition-colors self-start"
+                className="font-syne text-xs text-[#8866aa] hover:text-text transition-colors"
               >
                 {link.label}
               </a>
@@ -48,7 +48,7 @@ export default function FooterSection() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-syne text-xs text-[#8866aa] hover:text-text transition-colors self-start"
+                className="font-syne text-xs text-[#8866aa] hover:text-text transition-colors"
               >
                 {link.label}
               </Link>

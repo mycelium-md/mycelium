@@ -75,52 +75,77 @@ const LAYERS = [
 
 export default function TechStackSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-section">
-      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-16">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-section">
+      <p className="font-syne text-xs font-600 uppercase tracking-[0.2em] text-[#8866aa] mb-10 md:mb-16">
         03 — Architecture
       </p>
 
       <h2
-        className="font-syne font-700 tracking-tight text-text mb-16"
+        className="font-syne font-700 tracking-tight text-text mb-10 md:mb-16"
         style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)", lineHeight: "1.05" }}
       >
         Eight layers. One mesh.
       </h2>
 
       <div className="flex flex-col">
-        {LAYERS.map((layer, i) => (
+        {LAYERS.map((layer) => (
           <div
             key={layer.num}
-            className={`grid grid-cols-12 gap-4 py-6 border-b border-[#1a1a3a] group hover:bg-[#0d0d0d] transition-colors -mx-6 px-6 ${
-              i % 2 === 1 ? "" : ""
-            }`}
+            className="py-5 md:py-6 border-b border-[#1a1a3a] group hover:bg-[#0d0d0d] transition-colors -mx-4 md:-mx-6 px-4 md:px-6"
           >
-            {/* Number */}
-            <div className="col-span-1">
-              <span className="font-syne text-xs text-[#3a2a5a] font-600">{layer.num}</span>
+            {/* Mobile: stacked layout */}
+            <div className="flex flex-col gap-2 sm:hidden">
+              <div className="flex items-center gap-3">
+                <span className="font-syne text-xs text-[#3a2a5a] font-600 w-6 flex-shrink-0">{layer.num}</span>
+                <p className="font-syne text-sm font-600 text-text group-hover:text-accent transition-colors">
+                  {layer.name}
+                </p>
+              </div>
+              <div className="pl-9 flex flex-wrap gap-x-4 gap-y-1">
+                {layer.techs.map((tech) => (
+                  <a
+                    key={tech.name}
+                    href={tech.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-syne text-xs text-[#8866aa] hover:text-accent transition-colors"
+                  >
+                    {tech.name}
+                    <span className="ml-0.5 opacity-40">↗</span>
+                  </a>
+                ))}
+              </div>
             </div>
 
-            {/* Name */}
-            <div className={`col-span-5 ${i % 2 === 1 ? "col-start-2" : ""}`}>
-              <p className="font-syne text-sm font-600 text-text group-hover:text-accent transition-colors">
-                {layer.name}
-              </p>
-            </div>
+            {/* Desktop: grid layout */}
+            <div className="hidden sm:grid sm:grid-cols-12 sm:gap-4 sm:items-start">
+              {/* Number */}
+              <div className="col-span-1">
+                <span className="font-syne text-xs text-[#3a2a5a] font-600">{layer.num}</span>
+              </div>
 
-            {/* Techs */}
-            <div className="col-span-6 flex flex-wrap gap-x-6 gap-y-1">
-              {layer.techs.map((tech) => (
-                <a
-                  key={tech.name}
-                  href={tech.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-syne text-xs text-[#8866aa] hover:text-accent transition-colors"
-                >
-                  {tech.name}
-                  <span className="ml-0.5 opacity-40">↗</span>
-                </a>
-              ))}
+              {/* Name */}
+              <div className="col-span-5">
+                <p className="font-syne text-sm font-600 text-text group-hover:text-accent transition-colors">
+                  {layer.name}
+                </p>
+              </div>
+
+              {/* Techs */}
+              <div className="col-span-6 flex flex-wrap gap-x-6 gap-y-1">
+                {layer.techs.map((tech) => (
+                  <a
+                    key={tech.name}
+                    href={tech.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-syne text-xs text-[#8866aa] hover:text-accent transition-colors"
+                  >
+                    {tech.name}
+                    <span className="ml-0.5 opacity-40">↗</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         ))}
