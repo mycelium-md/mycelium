@@ -82,7 +82,14 @@ Respond with ONLY valid JSON, no markdown:
   }
 
   try {
-    const parsed = JSON.parse(content.text.trim()) as {
+    // Strip markdown code fences if present
+    let raw = content.text.trim();
+    raw = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
+    // Extract JSON object if wrapped in extra text
+    const jsonMatch = raw.match(/\{[\s\S]*\}/);
+    if (jsonMatch) raw = jsonMatch[0];
+
+    const parsed = JSON.parse(raw) as {
       capabilities: string[];
       reasoning: string;
     };
@@ -94,7 +101,23 @@ Respond with ONLY valid JSON, no markdown:
       reasoning: parsed.reasoning || "",
     };
   } catch {
-    return { capabilities: ["text_generation"], reasoning: "Failed to parse response" };
+    // Fallback: keyword match against task description
+    const desc = taskDescription.toLowerCase();
+    const fallback: Capability[] = ["text_generation"];
+    if (desc.includes("search") || desc.includes("research") || desc.includes("find")) fallback.push("web_search");
+    if (desc.includes("code") || desc.includes("implement") || desc.includes("program")) fallback.push("code_generation");
+    if (desc.includes("debug") || desc.includes("fix") || desc.includes("bug")) fallback.push("debugging");
+    if (desc.includes("security") || desc.includes("vulnerabilit") || desc.includes("audit")) fallback.push("security_analysis");
+    if (desc.includes("analyz") || desc.includes("data") || desc.includes("metric")) fallback.push("data_analysis");
+    if (desc.includes("monitor") || desc.includes("health") || desc.includes("uptime")) fallback.push("monitoring");
+    if (desc.includes("alert") || desc.includes("anomal")) fallback.push("alerting");
+    if (desc.includes("translat")) fallback.push("translation");
+    if (desc.includes("summar")) fallback.push("summarization");
+    if (desc.includes("plan") || desc.includes("roadmap")) fallback.push("planning");
+    if (desc.includes("decompos") || desc.includes("subtask") || desc.includes("breakdown")) fallback.push("task_decomposition");
+    if (desc.includes("review") || desc.includes("check code")) fallback.push("code_review");
+    if (desc.includes("reason") || desc.includes("infer") || desc.includes("logic")) fallback.push("reasoning");
+    return { capabilities: [...new Set(fallback)] as Capability[], reasoning: "Keyword-based fallback" };
   }
 }
 
