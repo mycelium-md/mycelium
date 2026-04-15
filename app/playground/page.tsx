@@ -70,7 +70,7 @@ export default function PlaygroundPage() {
   ];
 
   return (
-    <div className="pt-14 min-h-screen flex flex-col">
+    <div className="pt-14 h-screen flex flex-col overflow-hidden">
       {/* Top bar */}
       <div className="border-b border-[#1a1a3a] px-4 md:px-6 py-3 md:py-4 flex items-center justify-between flex-shrink-0">
         <div>
@@ -145,7 +145,7 @@ export default function PlaygroundPage() {
         {/* Network graph — desktop: always, mobile: only graph tab */}
         <div
           className={`
-            flex-1 relative min-h-[400px]
+            flex-1 relative min-h-0
             ${mobileTab !== "graph" ? "hidden lg:block" : ""}
           `}
         >

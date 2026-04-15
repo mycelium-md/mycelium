@@ -27,10 +27,10 @@ interface SimNode extends NetworkNode {
 // ─── Force simulation (3D) ───────────────────────────────────────────────────
 function simulate3D(nodes: SimNode[], edges: NetworkEdge[]) {
   const alpha    = 0.05;
-  const repK     = 6.0;   // repulsion radius units
-  const repStr   = 0.4;
-  const attrStr  = 0.012;
-  const centerK  = 0.006;
+  const repK     = 9.0;   // repulsion radius units
+  const repStr   = 0.6;
+  const attrStr  = 0.008;
+  const centerK  = 0.003;
   const damping  = 0.88;
 
   // Center gravity
@@ -86,7 +86,7 @@ function simulate3D(nodes: SimNode[], edges: NetworkEdge[]) {
     n.y  += n.vy * alpha;
     n.z  += n.vz * alpha;
     // Soft clamp
-    const maxR = 4.5;
+    const maxR = 7.0;
     const r = Math.sqrt(n.x * n.x + n.y * n.y + n.z * n.z);
     if (r > maxR) {
       const s = maxR / r;
@@ -178,7 +178,7 @@ function NodeMesh({ node, isActive, isHovered, onClick, onHover }: NodeMeshProps
       : isHovered ? 1.2 : 0.5;
   });
 
-  const r = Math.max(0.08, 0.08 + (node.taskCount ?? 0) * 0.008);
+  const r = Math.max(0.18, 0.18 + (node.taskCount ?? 0) * 0.012);
   const color = isActive ? C_BRIGHT : C_IDLE;
   const emissive = isActive ? C_GLOW : C_ACCENT;
 
@@ -187,7 +187,7 @@ function NodeMesh({ node, isActive, isHovered, onClick, onHover }: NodeMeshProps
       {/* Glow halo for active nodes */}
       {isActive && (
         <mesh ref={outerRef} position={[node.x, node.y, node.z]}>
-          <sphereGeometry args={[r * 2.5, 16, 16]} />
+          <sphereGeometry args={[r * 2.2, 16, 16]} />
           <meshStandardMaterial
             color={C_GLOW}
             emissive={C_GLOW}
@@ -220,8 +220,8 @@ function NodeMesh({ node, isActive, isHovered, onClick, onHover }: NodeMeshProps
 
       {/* Label */}
       <Text
-        position={[node.x, node.y - r - 0.22, node.z]}
-        fontSize={0.11}
+        position={[node.x, node.y - r - 0.28, node.z]}
+        fontSize={0.16}
         color={isActive ? "#C084F5" : "#9988bb"}
         anchorX="center"
         anchorY="top"
@@ -356,9 +356,9 @@ export default function NetworkGraph({ data, onNodeClick, className = "" }: Prop
       }
       return {
         ...n,
-        x: (Math.random() - 0.5) * 4,
-        y: (Math.random() - 0.5) * 3,
-        z: (Math.random() - 0.5) * 3,
+        x: (Math.random() - 0.5) * 8,
+        y: (Math.random() - 0.5) * 6,
+        z: (Math.random() - 0.5) * 4,
         vx: 0, vy: 0, vz: 0,
       };
     });
@@ -371,8 +371,8 @@ export default function NetworkGraph({ data, onNodeClick, className = "" }: Prop
   return (
     <div className={`w-full h-full ${className}`}>
       <Canvas
-        dpr={typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 2) : 1}
-        camera={{ position: [0, 0, 9], fov: 55, near: 0.1, far: 100 }}
+        dpr={[1, 2]}
+        camera={{ position: [0, 0, 14], fov: 65, near: 0.1, far: 200 }}
         gl={{ antialias: true }}
         style={{ background: "#08081a" }}
         onPointerMissed={() => setHoveredId(null)}
