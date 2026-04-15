@@ -23,10 +23,23 @@ export const metadata: Metadata = {
   description:
     "Agents find each other. Tasks get done. No one is in charge. An open protocol for decentralized multi-agent coordination.",
   keywords: ["AI agents", "multi-agent systems", "decentralized", "MCP", "agent coordination"],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/icon-192.png",
+  },
   openGraph: {
     title: "Mycelium",
     description: "The substrate AI agents run on.",
     type: "website",
+    images: [{ url: "/icon-512.png" }],
+  },
+  twitter: {
+    card: "summary",
+    site: "@mycelium_md",
+    creator: "@mycelium_md",
   },
 };
 
