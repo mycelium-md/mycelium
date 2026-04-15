@@ -15,7 +15,7 @@ function log(event: string, data: Record<string, unknown>) {
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const ip = req.headers.get("x-forwarded-for") ?? "unknown";
-  const rl = checkRateLimit(`tasks:broadcast:${ip}`, { maxRequests: 5, windowMs: 60_000 });
+  const rl = checkRateLimit(`tasks:broadcast:${ip}`, { maxRequests: 30, windowMs: 60_000 });
   if (!rl.allowed) {
     return NextResponse.json(
       { error: "Rate limit exceeded." } satisfies ApiResponse<never>,
